@@ -1,377 +1,439 @@
 <div align="center">
 
-# 📓 Cuaderno de Síntesis · Unidad 1
-## ⚡ Lógica Combinacional con Diseño Clásico
+# 📘 Cuaderno de Síntesis · Unidad 1
+### Análisis de Lógica Combinacional con Diseño Clásico
 
-**📘 Asignatura:** Diseño de Circuitos (E2C2A1) · **🏛️ UNL** · Carrera de Computación  
-**🎓 Ciclo:** 2 · **Paralelo:** A · **📅 Período:** sep 2026 – mar 2027  
-**👨‍🏫 Docente:** Ing. Luis Darío Sinche Cueva, Mg.  
-**🙋 Estudiante:** [Nombre completo]
+**Diseño de Circuitos** · Carrera de Computación · 2.º ciclo, paralelo A
+**Universidad Nacional de Loja** · Período académico septiembre 2026 – marzo 2027
+
+![Unidad](https://img.shields.io/badge/Unidad-1-blue) ![Semanas](https://img.shields.io/badge/Semanas-1%20a%204-green) ![Resultado](https://img.shields.io/badge/Resultado-R1-orange) ![Estado](https://img.shields.io/badge/Estado-En%20construcci%C3%B3n-yellow)
 
 </div>
 
 ---
 
-## 🧭 Menú
+## 🪪 Portada
 
-| | | |
-|---|---|---|
-| [1️⃣ Números y compuertas](#semana-1) | [2️⃣ Álgebra de Boole](#semana-2) | [3️⃣ Karnaugh y NAND/NOR](#semana-3) |
-| [4️⃣ Circuitos aritméticos](#semana-4) | [5️⃣ Mux y decodificadores](#semana-5) | [6️⃣ Cierre y método](#semana-6) |
-| [📚 Referencias](#referencias) | | |
+| | |
+|---|---|
+| 👤 **Estudiante** | `[Nombre completo]` |
+| 🎓 **Carrera / Ciclo** | Computación · 2.º ciclo · Paralelo A |
+| 📚 **Asignatura** | Diseño de Circuitos (código institucional E2C2A1) |
+| 👨‍🏫 **Docente** | Ing. Luis Darío Sinche Cueva, Mg. |
+| 🗓️ **Período** | Septiembre 2026 – marzo 2027 |
 
-> 🎯 **Resultado R1:** diseñar e implementar circuitos combinacionales básicos con técnicas de diseño clásico. [7]  
-> 💡 **Circuito combinacional** = la salida depende **solo de las entradas actuales** (sin memoria).
+---
 
-### 🔄 Método de la unidad
+## 🧭 Menú de navegación
 
-`Enunciado` ➜ `Tabla de verdad` ➜ `Σm / ΠM` ➜ `Minimizar (Karnaugh)` ➜ `Esquema` ➜ `Simular y comparar con la tabla`
+| | Sección | Enlace |
+|:-:|---|---|
+| 🎯 | Resultado de aprendizaje y ruta de la unidad | [Ir](#objetivo) |
+| 1️⃣ | Sistemas numéricos, códigos y compuertas | [Ir](#semana-1) |
+| 2️⃣ | Álgebra de Boole y formas canónicas | [Ir](#semana-2) |
+| 3️⃣ | Mapas de Karnaugh, indiferentes y NAND/NOR | [Ir](#semana-3) |
+| 4️⃣ | Circuitos aritméticos | [Ir](#semana-4) |
+| 🧩 | Mapa conceptual de la unidad | [Ir](#mapa) |
+| 📖 | Glosario | [Ir](#glosario) |
+| 🔗 | Referencias | [Ir](#referencias) |
+| 🗂️ | Estructura del repositorio | [Ir](#estructura) |
+
+---
+
+<a id="objetivo"></a>
+## 🎯 Resultado de aprendizaje y ruta de la unidad
+
+> **R1.** Diseña e implementa circuitos combinacionales básicos utilizando técnicas de diseño clásico, bajo los principios de solidaridad, transparencia, responsabilidad y honestidad.
+
+**Procedimiento de diseño clásico** que se repite en toda la unidad:
+
+`Enunciado` ➜ `Tabla de verdad` ➜ `Expresión (canónica)` ➜ `Minimización` ➜ `Esquema de compuertas` ➜ `Simulación y verificación`
+
+| Semana | Tema | Idea central |
+|:-:|---|---|
+| 1️⃣ | Sistemas numéricos, códigos y compuertas | Todo se reduce a dos estados y a siete compuertas |
+| 2️⃣ | Álgebra de Boole y formas canónicas | Un circuito y una expresión son la misma cosa |
+| 3️⃣ | Mapas de Karnaugh y NAND/NOR | Minimizar de forma visual y construir con una sola familia |
+| 4️⃣ | Circuitos aritméticos | Un circuito sin memoria puede sumar, restar y comparar |
 
 ---
 
 <a id="semana-1"></a>
-# 1️⃣ Semana 1 · Números, códigos y compuertas
+## 1️⃣ Semana 1 · Sistemas numéricos, códigos y compuertas lógicas
 
-### 🔌 ¿Por qué solo 0 y 1?
-Un transistor es un interruptor controlado por voltaje; con dos estados es fácil distinguir uno del otro aunque haya ruido. [8]
+**🎯 Objetivo:** convertir entre bases numéricas, representar negativos en complemento a dos, reconocer los códigos BCD, Gray y ASCII, y leer las compuertas lógicas en un circuito integrado 74LS.
 
-| Familia 74LS | Salida garantizada | Entrada que lee |
+### ⚡ 1.1 Representación binaria
+
+- Un **transistor** actúa como interruptor controlado por voltaje; con solo dos estados es fácil distinguirlos aun con ruido.
+- Un «1» o un «0» **no es un voltaje exacto, sino un rango**. En la familia **74LS**:
+
+| Nivel | Salida (garantiza) | Entrada (interpreta) |
+|---|:-:|:-:|
+| 1 lógico | ≥ 2,7 V | ≥ 2,0 V |
+| 0 lógico | ≤ 0,5 V | ≤ 0,8 V |
+| Zona indefinida | — | entre 0,8 V y 2,0 V |
+
+- **Margen de ruido:** alto = 2,7 − 2,0 = **0,7 V**; bajo = 0,8 − 0,5 = **0,3 V**.
+- ⚠️ Una entrada sin conectar puede caer en la zona indefinida y producir lecturas erróneas.
+
+### 🔢 1.2 Sistemas numéricos
+
+En un sistema **posicional**, cada posición vale una potencia de la base.
+
+| Sistema | Base | Observación |
+|---|:-:|---|
+| Decimal | 10 | Dígitos 0 a 9 |
+| Binario | 2 | Pesos 128, 64, 32, 16, 8, 4, 2, 1. 1 bit = un dígito binario; 1 byte = 8 bits |
+| Octal | 8 | Agrupa el binario de **3 en 3 bits** |
+| Hexadecimal | 16 | Agrupa el binario de **4 en 4 bits** (A=10 … F=15) |
+
+**Conversiones**
+- **Binario ➜ decimal:** sumar los pesos de las posiciones en 1. Ejemplo: `1011₂ = 8 + 2 + 1 = 11`.
+- **Decimal ➜ binario:** dividir sucesivamente entre 2 y leer los restos de abajo hacia arriba. Ejemplo: `25 = 11001₂`.
+- **Binario ➜ hexadecimal/octal:** agrupar bits desde la derecha. Ejemplo: `157 = 10011101₂ = 9D₁₆ = 235₈`.
+
+### ➕ 1.3 Aritmética binaria y complemento a dos
+
+- **Suma binaria:** `0+0=0`, `0+1=1`, `1+1=10` (se escribe 0 y se lleva 1), `1+1+1=11`.
+- **Complemento a dos:** convención para representar negativos; el bit de la izquierda indica el signo (0 positivo, 1 negativo).
+  - Con 4 bits el rango es **−8 a +7**; con 8 bits, **−128 a +127**.
+  - **Obtener −X:** invertir los bits de X y sumar 1. Ejemplo: `3 = 0011 → 1100 → 1101 = −3`.
+  - **Ventaja:** restar es sumar el negativo (`A − B = A + (−B)`); basta un sumador más inversores. El bit sobrante a la izquierda se descarta.
+- **Desbordamiento (overflow):** ocurre cuando el resultado no cabe en los bits disponibles (por ejemplo, `0111 + 0001 = 1000 = −8` en 4 bits). Se detecta con hardware en la semana 4.
+
+### 🔤 1.4 Códigos
+
+| Código | Descripción | Uso típico |
 |---|---|---|
-| **1** | ≥ 2,7 V | ≥ 2,0 V |
-| **0** | ≤ 0,5 V | ≤ 0,8 V |
+| **BCD** | Cada dígito decimal en 4 bits (157 ➜ `0001 0101 0111`); las combinaciones 1010 a 1111 no se usan | Displays, relojes, contadores |
+| **Gray** | Entre valores consecutivos cambia **un solo bit**; se genera con el método del espejo | Encoders rotativos; orden de filas y columnas del mapa de Karnaugh |
+| **ASCII** | Tabla de 7 bits (128 caracteres) que asigna un número a cada carácter; «A» = 65 = `01000001` | Representación de texto (la ñ y las tildes requieren UTF-8) |
 
-⚠️ Entre 0,8 y 2,0 V hay una **zona indefinida** (típico error: entrada sin conectar). Márgenes de ruido: **0,7 V** (alto) y **0,3 V** (bajo).
+### 🚪 1.5 Compuertas lógicas
 
-### 🔢 Bases y conversiones
-- **Binario → decimal:** suma de pesos (128 · 64 · 32 · 16 · 8 · 4 · 2 · 1).
-- **Decimal → binario:** dividir entre 2 y leer los restos de abajo hacia arriba.
-- **Hex = grupos de 4 bits · Octal = grupos de 3 bits** (desde la derecha).
+| Compuerta | Expresión | Salida en 1 cuando… |
+|---|:-:|---|
+| **NOT** | `Y = A'` | La entrada es 0 (invierte) |
+| **AND** | `Y = A·B` | **Todas** las entradas valen 1 |
+| **OR** | `Y = A+B` | **Al menos una** entrada vale 1 |
+| **NAND** | `Y = (A·B)'` | **No** todas las entradas valen 1 |
+| **NOR** | `Y = (A+B)'` | **Ninguna** entrada vale 1 |
+| **XOR** | `Y = A⊕B` | Las entradas son **distintas** |
+| **XNOR** | `Y = (A⊕B)'` | Las entradas son **iguales** |
 
-> Ejemplo: `157 = 10011101₂ = 9D₁₆ = 235₈`
+- El círculo en la salida de un símbolo significa «negado».
+- Existen dos normas de dibujo (ANSI y rectangular); el curso usa **ANSI**.
 
-### ➖ Complemento a dos
-- **Negativo = invertir bits + 1.** Rango en 4 bits: −8 a +7.
-- **Restar = sumar el negativo:** `5 − 3 = 0101 + 1101 = 0010` (se descarta el acarreo final).
-- ⚠️ **Desbordamiento:** `0111 + 0001 = 1000` (¡−8!). Pasa también con `int` en Java.
+### 🔌 1.6 Circuitos integrados 74LS y hoja de datos
 
-### 🔤 Códigos
-| Código | Idea | Uso |
-|---|---|---|
-| **BCD** | cada dígito decimal en 4 bits (1010–1111 no se usan) | displays, relojes |
-| **Gray** | entre vecinos cambia **un solo bit** | encoders, mapas de Karnaugh |
-| **ASCII** | 7 bits = 128 caracteres (`A` = 65 = `01000001`) | texto |
-
-### 🚪 Las 7 compuertas
-| Compuerta | Sale 1 cuando… |
-|---|---|
-| NOT `A'` | la entrada es 0 |
-| AND `A·B` | **todas** valen 1 |
-| OR `A+B` | **al menos una** vale 1 |
-| NAND | no todas valen 1 |
-| NOR | **ninguna** vale 1 |
-| XOR `⊕` | las entradas son **distintas** |
-| XNOR | las entradas son **iguales** |
-
-🎨 Se usa simbología **ANSI/IEEE** (formas distintivas); IEC usa rectángulos.
-
-### 🧩 Circuito integrado 74LS08
-- **DIP-14**, muesca arriba, pin 1 arriba a la izquierda, conteo antihorario.
-- 🔋 **Pin 14 = +5 V · Pin 7 = GND**.
-- Código `SN 74 LS 08 N` → fabricante · rango comercial · familia TTL · **4 AND de 2 entradas** · DIP plástico.
-- Un `74HC08` es la versión CMOS: misma función y pines.
-
-✅ **Me llevo:** 0/1 son rangos de voltaje · complemento a dos = invertir + 1 · BCD display, Gray sensores, ASCII texto · cada chip se lee en su hoja de datos.
-
-🔬 *Práctica APE 01: comprobar la tabla de verdad de cada compuerta en el simulador.*
+- Las compuertas se comercializan en circuitos integrados; el **74LS08** contiene 4 compuertas AND de 2 entradas en encapsulado **DIP-14**.
+- **Pines:** muesca arriba, pin 1 arriba a la izquierda y conteo en sentido antihorario; alimentación **+5 V en el pin 14** y **tierra en el pin 7**.
+- **Lectura del código** `SN 74 LS 08 N`: fabricante (Texas Instruments) · rango comercial · familia TTL · función (4 AND) · encapsulado plástico. Una versión 74HC08 cumple la misma función y pines en tecnología CMOS.
+- La información completa se obtiene en la **hoja de datos** del fabricante.
 
 ---
 
 <a id="semana-2"></a>
-# 2️⃣ Semana 2 · Álgebra de Boole y formas canónicas
+## 2️⃣ Semana 2 · Álgebra de Boole y formas canónicas
 
-### 🔁 Circuito = expresión
-`Y = A·B + C'` → AND = producto · OR = suma · NOT = complemento.  
-**Precedencia:** NOT ➜ AND ➜ OR.
+**🎯 Objetivo:** pasar de un enunciado a la tabla de verdad, a la forma canónica y a un circuito simplificado.
 
-### 📜 Postulados y dualidad
-Identidad `X+0=X`, complemento `X+X'=1`, conmutativa, distributiva.  
-🪞 **Dualidad:** intercambia `+ ↔ ·` y `0 ↔ 1` y la igualdad sigue válida.  
-⭐ La distributiva que sorprende: `A + BC = (A+B)(A+C)`.
+### 🔁 2.1 Circuito = expresión
 
-### 🛠️ Teoremas útiles
-| Teorema | Forma |
+| Circuito | Expresión |
 |---|---|
-| Idempotencia | `X+X = X` |
-| Absorción | `X + XY = X` |
-| Absorción del complemento | `X + X'Y = X + Y` |
-| Adyacencia | `XY + XY' = X` |
-| Consenso | `XY + X'Z + YZ = XY + X'Z` |
+| Cable de entrada | Variable (A, B, C) |
+| AND | Producto `·` |
+| OR | Suma `+` |
+| NOT | Complemento `'` |
+| Salida | Valor de la expresión |
 
-### 🔀 De Morgan
-> **"Rompe la barra, cambia el operador."**  
-> `(AB)' = A' + B'` · `(A+B)' = A'·B'`
+Precedencia de operadores: **NOT ➜ AND ➜ OR**. Ejemplo: `Y = A·B + C'`.
 
-### 🧱 Minitérminos y maxitérminos
-| | Minitérmino mᵢ | Maxitérmino Mᵢ |
+### 📝 2.2 Del enunciado a la especificación
+
+Traducir un enunciado en lenguaje natural exige eliminar ambigüedades. «La sirena suena cuando se activan dos sensores» admite dos lecturas: *exactamente dos* (`Σm(3,5,6)`) o *al menos dos* (`Σm(3,5,6,7)`). La especificación debe fijar una sola.
+
+### 📐 2.3 Postulados y teoremas del álgebra de Boole
+
+Se trabaja sobre el conjunto {0, 1} con las operaciones `+`, `·` y `'`. El principio de **dualidad** indica que al intercambiar `+` con `·` y `0` con `1` (sin complementar variables) la identidad sigue siendo válida.
+
+| Postulado | Forma OR | Forma AND (dual) |
 |---|---|---|
-| Operación | **producto** | **suma** |
-| Vale | 1 solo en la fila i | 0 solo en la fila i |
-| Variable en 1 / 0 | directa / complementada | complementada / directa |
+| Identidad | `X + 0 = X` | `X · 1 = X` |
+| Complemento | `X + X' = 1` | `X · X' = 0` |
+| Conmutativa | `X + Y = Y + X` | `XY = YX` |
+| Distributiva | `X(Y+Z) = XY + XZ` | `X + YZ = (X+Y)(X+Z)` |
 
-Relación: `Mᵢ = (mᵢ)'`
-
-### 📋 SOP vs POS
-| | SOP (Σm) | POS (ΠM) |
+| Teorema | Forma OR | Forma AND |
 |---|---|---|
-| Lee las filas con | **F = 1** | **F = 0** |
-| Une con | OR de minitérminos | AND de maxitérminos |
-| Conviene si hay | pocos 1 | pocos 0 |
-| Con solo… | NAND-NAND (7400) | NOR-NOR (7402) |
+| Elemento nulo | `X + 1 = 1` | `X · 0 = 0` |
+| Idempotencia | `X + X = X` | `X · X = X` |
+| Involución | `(X')' = X` | |
+| Absorción | `X + XY = X` | `X(X+Y) = X` |
+| Absorción del complemento | `X + X'Y = X + Y` | `X(X'+Y) = XY` |
+| Adyacencia | `XY + XY' = X` | `(X+Y)(X+Y') = X` |
+| Consenso | `XY + X'Z + YZ = XY + X'Z` | `(X+Y)(X'+Z)(Y+Z) = (X+Y)(X'+Z)` |
 
-### 🚨 Ejemplo clave: alarma de 3 sensores
-⚠️ *"Suena cuando se activan dos sensores"* es ambiguo: **exactamente dos** `Σm(3,5,6)` vs **al menos dos** `Σm(3,5,6,7)` (la que se pidió).
+### 🔀 2.4 Leyes de De Morgan
 
-```text
-F = Σm(3,5,6,7) = ΠM(0,1,2,4)
-Simplificada:  F = AB + AC + BC      (POS: (A+B)(A+C)(B+C))
-```
+> **«Rompe la barra, cambia el operador».**
 
-| Versión | Costo |
-|---|---|
-| Canónica | **4 CI** (7404 + 2×7411 + 7432) |
-| Simplificada | **2 CI** (7408 + 7432) |
+- `(A·B)' = A' + B'`
+- `(A+B)' = A'·B'`
+- Se generaliza a n variables: `(A+B+C)' = A'B'C'`.
 
-✅ **Me llevo:** la tabla manda (dos expresiones son equivalentes si tienen la misma tabla) · la forma canónica siempre existe y es única · simplificar ahorra hardware, pero el álgebra **no garantiza el mínimo**.
+### 🧮 2.5 Minitérminos y maxitérminos
 
-🔬 *Práctica APE 02: canónica vs simplificada y conteo de CI.*
+| | Minitérmino `mᵢ` | Maxitérmino `Mᵢ` |
+|---|---|---|
+| Tipo | **Producto** de todas las variables | **Suma** de todas las variables |
+| Vale | 1 en una sola fila | 0 en una sola fila |
+| Regla | Variable en 1 ➜ sin complemento; en 0 ➜ complementada | Variable en 0 ➜ sin complemento; en 1 ➜ complementada |
+| Relación | | `Mᵢ = (mᵢ)'` |
+
+### 🧱 2.6 Formas canónicas
+
+| Forma | Se leen las filas con… | Se unen mediante… | Notación |
+|---|:-:|:-:|:-:|
+| **SOP** (suma de productos) | F = **1** | OR de minitérminos | `Σm(...)` |
+| **POS** (producto de sumas) | F = **0** | AND de maxitérminos | `ΠM(...)` |
+
+- Los índices de `ΠM` son los que **faltan** en `Σm`.
+- La forma canónica **siempre existe y es única**.
+- **Criterio de elección:** pocos 1 ➜ SOP; pocos 0 ➜ POS; solo NAND ➜ SOP (NAND-NAND); solo NOR ➜ POS (NOR-NOR). El criterio final es el **costo** (compuertas, circuitos integrados y niveles lógicos).
+
+### ✂️ 2.7 Simplificación algebraica
+
+Procedimiento: (1) agrupar pares adyacentes `XY + XY' = X`; (2) duplicar términos si hace falta `X = X + X`; (3) absorción; (4) absorción del complemento; (5) consenso.
+
+> **Ejemplo de referencia (alarma de 3 sensores, «al menos dos»):**
+> `F = Σm(3,5,6,7) = A'BC + AB'C + ABC' + ABC` ➜ `F = AB + AC + BC`
+> Reduce el costo de **4 CI** (versión canónica) a **2 CI** (7408 + 7432).
+
+⚠️ **Limitación:** el álgebra no indica cuándo se alcanzó la expresión mínima; esto motiva los mapas de Karnaugh.
 
 ---
 
 <a id="semana-3"></a>
-# 3️⃣ Semana 3 · Mapas de Karnaugh y NAND/NOR
+## 3️⃣ Semana 3 · Mapas de Karnaugh, condiciones indiferentes y NAND/NOR
 
-### 🗺️ ¿Por qué un mapa?
-Se basa en **adyacencia**: si dos minitérminos difieren en una variable, esa variable desaparece (`XY + XY' = X`).  
-Por eso filas y columnas van en **código Gray: 00, 01, 11, 10**.
+**🎯 Objetivo:** obtener la expresión mínima en SOP y POS mediante mapas de Karnaugh, tratar las condiciones indiferentes e implementar con una sola familia de compuertas.
 
-| AB \ CD | 00 | 01 | 11 | 10 |
-|:---:|:---:|:---:|:---:|:---:|
-| **00** | m0 | m1 | m3 | m2 |
-| **01** | m4 | m5 | m7 | m6 |
-| **11** | m12 | m13 | m15 | m14 |
-| **10** | m8 | m9 | m11 | m10 |
+### 🗺️ 3.1 Fundamento: teorema de adyacencia
 
-### 📏 Reglas para agrupar
-1. Tamaño **2ᵏ** (1, 2, 4, 8, 16): un grupo de 2ᵏ elimina **k** variables.
-2. Solo **rectángulos** (nada de L ni diagonales).
-3. Lo **más grandes** posible.
-4. 🌀 **El mapa se enrolla:** bordes opuestos y las 4 esquinas son vecinos.
+`XY + XY' = X` ➜ si dos minitérminos difieren en **una sola variable**, esa variable desaparece. El mapa de Karnaugh es una disposición geométrica de la tabla de verdad que hace visibles esas adyacencias.
 
-**Leer un grupo:** se conservan las variables que **no cambian** (1 → `A`, 0 → `A'`).
+### 🔢 3.2 ¿Por qué el orden 00, 01, 11, 10?
 
-### 🏅 Implicantes
-- **Primo:** grupo que ya no se puede agrandar.
-- **Esencial:** único primo que cubre algún 1 → **debe** estar en la solución.
-- **Mínimo** = esenciales + los primos mínimos para cubrir el resto.
+Se utiliza **código Gray** en filas y columnas, de modo que celdas vecinas difieren en un solo bit. Además, **el mapa se enrolla**: la última celda es vecina de la primera.
 
-### ✅ Ejemplo: `F = Σm(0,1,2,5,8,9,10)`
-`F = B'C' + B'D' + A'C'D` → 3 términos, **7 literales**  
-(esquinas = `B'D'`, bordes superior/inferior = `B'C'`).
-
-**En POS (se agrupan los 0 y se lee invertido):**  
-`F = (A'+B')(B'+D)(C'+D')` → **6 literales** 🏆  
-👉 Se construyen ambas y se elige la de menor costo.
-
-### ❌ Condiciones indiferentes (X)
-| Si… | Entonces |
+| Mapa | Distribución de minitérminos |
 |---|---|
-| agrandan un grupo | se usan como **1** |
-| no ayudan | se ignoran (como 0) |
-| formarían un grupo solas | **nunca** se agrupan |
+| **3 variables** (A \ BC, columnas 00-01-11-10) | Fila A=0: `0 1 3 2` · Fila A=1: `4 5 7 6` |
+| **4 variables** (AB \ CD, ambos en Gray) | `0 1 3 2` / `4 5 7 6` / `12 13 15 14` / `8 9 11 10` |
 
-**Ejemplo BCD ≥ 5:** `F = Σm(5…9) + d(10…15)`
+### 📏 3.3 Reglas de agrupación
 
-| | Resultado | Literales |
-|---|---|---|
-| Sin usar las X | `AB'C' + A'BD + A'BC` | 9 |
-| Con las X | `A + BD + BC` | **5** ✨ |
+1. **Tamaño 2ᵏ** (1, 2, 4, 8 o 16 celdas); un grupo de 2ᵏ celdas elimina *k* variables.
+2. **Rectangular:** sin formas en L ni diagonales.
+3. **Lo más grande posible:** grupos grandes generan términos más cortos.
+4. **El mapa se enrolla:** bordes opuestos y esquinas son vecinos (por ejemplo, las 4 esquinas forman `B'D'`).
 
-### 🔧 Universalidad NAND / NOR
+**Lectura de un grupo:** se conservan solo las variables que **no cambian**. Constante en 1 ➜ `A`; constante en 0 ➜ `A'`; si cambia ➜ desaparece.
+
+### ⭐ 3.4 Implicantes y procedimiento de minimización
+
+| Concepto | Definición |
+|---|---|
+| **Implicante** | Cualquier grupo válido de 1 (o X) |
+| **Implicante primo** | Grupo que ya no se puede agrandar |
+| **Primo esencial** | Único primo que cubre algún 1; debe estar en la solución |
+
+**Solución mínima = primos esenciales + los primos mínimos necesarios para cubrir el resto.**
+Pasos: **Colocar** 1, 0 y X ➜ **Agrupar** los más grandes ➜ **Elegir** primos esenciales ➜ **Cubrir** los 1 restantes ➜ **Leer** un término por grupo. La solución mínima no siempre es única.
+
+### 🔄 3.5 SOP y POS en el mapa
+
+- **SOP:** se agrupan los **1** y se lee directamente.
+- **POS:** se agrupan los **0** y la lectura es **invertida** (0 ➜ `A`, 1 ➜ `A'`), con suma dentro de cada factor.
+- **Ejemplo de referencia:** `F = Σm(0,1,2,5,8,9,10)`
+  - SOP: `B'C' + B'D' + A'C'D` ➜ 7 literales
+  - POS: `(A'+B')(B'+D)(C'+D')` ➜ 6 literales
+- **Criterio:** construir ambas y elegir la de menor costo en literales, compuertas y circuitos integrados.
+
+### ❎ 3.6 Condiciones indiferentes (X)
+
+Son combinaciones que **nunca ocurren** (por ejemplo, en BCD las combinaciones 1010 a 1111). Notación: `F = Σm(...) + d(...)`.
+
+| Regla | Descripción |
+|---|---|
+| ✅ Como **1** | Si agranda un grupo, se incluye: el término queda más corto |
+| ✅ Como **0** | Si no ayuda, se ignora: ninguna X está obligada a quedar cubierta |
+| 🚫 **Nunca sola** | Un grupo formado solo por X agrega un término inútil |
+
+> **Ejemplo (dígito BCD ≥ 5):** `F = Σm(5,6,7,8,9) + d(10…15)`. Sin usar las X: `AB'C' + A'BD + A'BC` (9 literales). Usándolas: **`A + BD + BC`** (5 literales).
+
+### 🧩 3.7 Universalidad de NAND y NOR
+
+Con **solo NAND** (o **solo NOR**) se puede construir cualquier función.
+
 | Función | Solo NAND | Solo NOR |
-|---|---|---|
+|---|:-:|:-:|
 | NOT | `(A·A)'` | `(A+A)'` |
 | AND | `((AB)')'` | `(A'+B')'` |
 | OR | `(A'·B')'` | `((A+B)')'` |
 
-- **SOP mínima → NAND-NAND** · **POS mínima → NOR-NOR**.
-- **Conversión SOP → NAND:** doble negación + De Morgan; cada paréntesis es una NAND, y el literal solo entra **complementado** (NAND como inversor).
+**Conversión de esquemas:** **SOP mínima ➜ NAND-NAND** y **POS mínima ➜ NOR-NOR**. Se aplica doble negación y De Morgan; el **literal que aparece solo se complementa** (NAND usada como inversor). Se mantienen dos niveles, por lo que el retardo es igual al de AND-OR.
 
-```text
-F = A + BD + BC = NAND( A', NAND(B,D), NAND(B,C) )
-```
-
-| Implementación | CI |
-|---|---|
-| Sin X | 3 (7404 + 7411 + 7432) |
-| Con X, AND-OR | 2 (7408 + 7432) |
-| Con X, solo NAND | 2 (7400 + 7410) |
-
-💡 El ahorro vino de las **X**; la NAND no agrega chips y deja **una sola familia** en el inventario.
-
-✅ **Me llevo:** Gray + grupos grandes = términos cortos · primos esenciales primero · X solo si ayudan · la solución mínima no siempre es única.
-
-🔬 *Práctica APE 03: circuito antes/después de minimizar y conversión a una familia.*
+**Costo en circuitos integrados** (ejemplo BCD ≥ 5): sin X ➜ 3 CI (7404 + 7411 + 7432); con X, AND-OR ➜ 2 CI (7408 + 7432); con X, solo NAND ➜ 2 CI (7400 + 7410). El ahorro proviene de las X; la NAND unifica la familia de compuertas en el inventario.
 
 ---
 
 <a id="semana-4"></a>
-# 4️⃣ Semana 4 · Circuitos aritméticos
+## 4️⃣ Semana 4 · Circuitos aritméticos
 
-> 🧠 Un circuito **sin memoria** suma, y el **acarreo** es su problema central. Es el corazón de la **ALU**.
+**🎯 Objetivo:** diseñar con el procedimiento clásico un sumador de 4 bits, utilizarlo también para restar y estimar su tiempo de respuesta. Es la base de la **ALU** de un procesador.
 
-### ➕ Semisumador (columna 0, 2 bits)
-| Salida | Función | Compuerta |
-|---|---|---|
-| S (suma) | `A ⊕ B` | XOR |
-| C (acarreo) | `A · B` | AND |
+### 1️⃣ 4.1 Suma de un bit
 
-### ➕➕ Sumador completo (3 bits: A, B, Cin)
-Truco: **cuenta los unos** de la fila y escríbelo en binario `Cout S`.
+`S` = dígito que se escribe · `C` = acarreo («me llevo»). Un acarreo puede provocar otro, por lo que los acarreos se **encadenan**.
+
+### ➕ 4.2 Semisumador (columna 0)
+
+Suma **2 bits** (A y B); no recibe acarreo.
+
+| A | B | C | S |
+|:-:|:-:|:-:|:-:|
+| 0 | 0 | 0 | 0 |
+| 0 | 1 | 0 | 1 |
+| 1 | 0 | 0 | 1 |
+| 1 | 1 | 1 | 0 |
+
+**`S = A ⊕ B`** (XOR) · **`C = A · B`** (AND)
+
+### ➕➕ 4.3 Sumador completo (columnas 1, 2, 3…)
+
+Suma **3 bits**: A, B y el acarreo de entrada `Cin`. Se construye contando los unos de cada fila y escribiendo el resultado en binario (`Cout S`).
 
 | Salida | En palabras | Expresión |
 |---|---|---|
-| **S** | número **impar** de unos | `A ⊕ B ⊕ Cin` (tablero de ajedrez en el K-map) |
-| **Cout** | **al menos dos** unos | `AB + A·Cin + B·Cin` |
+| **S** | 1 cuando hay un número **impar** de unos | `S = A ⊕ B ⊕ Cin` (en el mapa, distribución de «tablero de ajedrez») |
+| **Cout** | 1 cuando hay **al menos dos** unos | `Cout = AB + A·Cin + B·Cin` (tres grupos de dos) |
 
-### 🌊 Sumador paralelo de 4 bits (ripple)
-Se encadenan 4 sumadores: **Cout de uno → Cin del siguiente**. El resultado se completa de derecha a izquierda, como una ola.
+**Procedimiento:** tabla de verdad ➜ mapa de Karnaugh ➜ expresión y su lectura en palabras.
 
-⏱️ **Retardo ≈ 2 · n · 10 ns** (2 compuertas por etapa):
+### 🌊 4.4 Sumador paralelo de 4 bits (ripple carry)
 
-| Bits | Tiempo |
-|:---:|:---:|
-| 4 | 80 ns |
-| 16 | 320 ns |
-| 32 | 640 ns |
+- Cuatro sumadores completos en cadena; regla única: **`Cout` de un sumador ➜ `Cin` del siguiente**.
+- El acarreo avanza etapa por etapa, de derecha a izquierda, como una ola.
+- **Estimación del retardo:** si cada compuerta tarda ≈ 10 ns y el acarreo cruza ≈ 2 compuertas por etapa, entonces **retardo ≈ 2 · n · 10 ns**.
 
-### ➖ Resta: `A − B = A + (−B)`
-Un solo circuito suma **o** resta con una línea **M**:
-- `B ⊕ M` (XOR = inversor controlado) y **Cin = M** (aporta el +1).
-- **M = 0 → suma · M = 1 → resta.**
+| Bits (n) | Compuertas | Tiempo aproximado |
+|:-:|:-:|:-:|
+| 4 | 8 | 80 ns |
+| 16 | 32 | 320 ns |
+| 32 | 64 | 640 ns |
 
-> Ejemplo: `0110 − 0011 = 0110 + 1101 = 1 0011 → 3` ✅
+Más bits implican un circuito más lento.
 
-### 🚨 Overflow
-- Con signo (4 bits: −8 a +7): `0101 + 0100 = 1001 = −7` ❌
-- **V = C3 ⊕ C4** (el acarreo que entra a la última etapa ≠ el que sale).
-- ⚠️ **Cout = 1 NO significa error.**
+### ➖ 4.5 Resta con el mismo sumador
 
-### ⚖️ Comparador de magnitud
-- **A = B:** XNOR en cada bit y AND de todos.
-- **A > B:** de izquierda a derecha, el primer bit distinto decide. (Integrado **7485**.)
+- `A − B = A + (−B)`, y `−B` = invertir los bits de B y sumar 1.
+- **Sumador/restador:** una compuerta **XOR** actúa como inversor controlado por una señal **M**.
 
-### 🧩 Demostración: `0101 + 0011 = 1000` (8)
-Sin signo: correcto · Con signo: overflow. (Integrado sumador: **7483**.)
+| M | Efecto sobre B | Operación |
+|:-:|---|---|
+| 0 | B pasa igual | **Suma** |
+| 1 | B se invierte (y `Cin` = 1 aporta el +1) | **Resta** |
 
-✅ **Me llevo:** `S` = impar de unos · `Cout` = al menos dos · ripple = el acarreo marca el retardo · restar es sumar con XOR + Cin=1.
+Un único circuito suma o resta según M.
 
-🔬 *Práctica APE 04: semisumador, sumador completo, paralelo de 4 bits y resta.*
+### 🚨 4.6 Desbordamiento (overflow)
 
----
+- Con 4 bits y signo, el rango es −8 a +7; `0101 (+5) + 0100 (+4) = 1001 (−7)` ✗.
+- Hay overflow si el acarreo que **entra** a la última etapa es distinto del que **sale**: **`V = C3 ⊕ C4`**.
+- ⚠️ `Cout = 1` **no** implica error por sí solo.
 
-<a id="semana-5"></a>
-# 5️⃣ Semana 5 · Selección y codificación de datos
+### ⚖️ 4.7 Comparador de magnitud
 
-> 📌 Resumen basado en el contenido del sílabo [7] y el texto base [1][2].
+- **¿A = B?** XNOR en cada bit (1 si son iguales) y AND de todas las salidas.
+- **¿A > B?** Se compara desde el bit más significativo: el primer bit en que difieren decide. Circuito integrado de referencia: **7485**.
 
-| Bloque | Qué hace | Clave |
-|---|---|---|
-| 🔀 **Multiplexor (MUX)** | elige 1 de 2ⁿ entradas con n líneas de selección | `Y = S'·I0 + S·I1` (2:1) |
-| 📡 **Demultiplexor** | lleva 1 entrada a 1 de 2ⁿ salidas | **dual** del MUX |
-| 🔓 **Decodificador** | activa 1 de 2ⁿ salidas según el código | cada salida es un **minitérmino** |
-| 🔒 **Codificador** | convierte la línea activa en código binario | con prioridad si hay varias activas |
-| 🔢 **BCD → 7 segmentos** | enciende los segmentos `a–g` de un display | ánodo común vs cátodo común |
+### 🧠 4.8 Relación con la ALU
 
-### ✨ MUX como generador de funciones
-Un MUX de 2ⁿ canales implementa **cualquier función de n variables sin minimizar**: las variables van a las selecciones y cada entrada de datos se conecta a **0 o 1** según la tabla.
-
-> Ejemplo: `F(A,B,C) = Σm(1,2,4,7)` en un MUX 8:1 → entradas `I1=I2=I4=I7=1`, el resto 0 (es `A⊕B⊕C`).
-
-🧱 **Expansión:** 2 MUX 4:1 + 1 MUX 2:1 = MUX 8:1.
-
-⚖️ **Compuertas vs. MUX:** con Karnaugh suele costar menos en funciones simples; con MUX no se minimiza y cambiar la función es solo recablear.
-
-✅ **Me llevo:** MUX/DEMUX son duales · decodificador entrega minitérminos · elegir bloque o compuertas es una decisión de **costo**.
-
-🔬 *Práctica APE 05: MUX de 4 fuentes, función con MUX y display de 7 segmentos.*
+La ALU de un procesador combina: **sumador/restador**, **comparador**, **compuertas AND/OR/XOR** y un **multiplexor** (semana 5) que selecciona el resultado de la instrucción.
 
 ---
 
-<a id="semana-6"></a>
-# 6️⃣ Semana 6 · Cierre de la unidad
+<a id="mapa"></a>
+## 🧩 Mapa conceptual de la unidad
 
-📝 Evaluación sumativa (semanas 1–5) y 🚀 **primer avance del proyecto integrador:** especificación, tabla de verdad, expresión mínima y esquema combinacional simulado. [7]
-
-### 🧰 ¿Qué técnica uso?
-| Técnica | Ventaja | Límite |
-|---|---|---|
-| Canónica | directa y sistemática | muchas compuertas |
-| Álgebra | sin dibujar mapas | no garantiza el mínimo |
-| Karnaugh | mínimo garantizado | hasta 4 variables |
-| NAND/NOR | una sola familia de chips | esquema menos legible |
-| Multiplexor | sin minimizar | costo fijo del bloque |
-
-### ⚠️ Errores frecuentes
-1. Usar orden binario en vez de **Gray** en el mapa.
-2. Grupos que **no** son potencia de 2.
-3. Olvidar que el mapa **se enrolla**.
-4. Agrupar X que no ayudan (o solas).
-5. Confundir SOP con POS (en POS la lectura va **invertida**).
-6. No contrastar la simulación con la **tabla de verdad**.
-7. Creer que `Cout = 1` es overflow.
-
-### ✅ Checklist de diseño
-- [ ] Variables y tabla de verdad completa
-- [ ] Σm / ΠM
-- [ ] Expresión mínima justificada
-- [ ] Esquema con integrados y pines
-- [ ] Simulación = tabla de verdad
-- [ ] Conteo de compuertas y CI
+```text
+Sistemas numéricos y códigos (S1)
+        │
+        ▼
+Compuertas y tablas de verdad (S1) ──► Álgebra de Boole, SOP/POS (S2)
+                                                │
+                                                ▼
+                               Mapas de Karnaugh e indiferentes (S3)
+                                                │
+                                                ▼
+                               NAND/NOR: implementación con una familia (S3)
+                                                │
+                                                ▼
+                       Bloques aritméticos: sumadores, resta, comparador (S4)
+                                                │
+                                                ▼
+                                   Hacia la ALU (S5 en adelante)
+```
 
 ---
 
-# 🤖 Declaración de uso de IA
+<a id="glosario"></a>
+## 📖 Glosario
 
-| Herramienta | Finalidad | Verificación |
-|---|---|---|
-| [Herramienta] | [Ej.: organizar y resumir el cuaderno] | [Ej.: contraste con diapositivas, texto base y simulación] |
+| Término | Definición |
+|---|---|
+| **Bit / Byte** | Dígito binario / conjunto de 8 bits |
+| **Margen de ruido** | Diferencia de voltaje que tolera una señal antes de leerse mal |
+| **Complemento a dos** | Convención para representar enteros con signo en binario |
+| **Overflow** | Resultado que no cabe en los bits disponibles |
+| **Minitérmino / Maxitérmino** | Producto / suma que contiene todas las variables y vale 1 / 0 en una sola fila |
+| **SOP / POS** | Suma de productos / producto de sumas |
+| **Implicante primo** | Grupo válido del mapa que no puede agrandarse |
+| **Condición indiferente** | Combinación que nunca ocurre y puede usarse como 0 o 1 según convenga |
+| **Acarreo (carry)** | Dígito que se lleva a la columna siguiente en una suma |
+| **Ripple carry** | Sumador en el que el acarreo se propaga etapa por etapa |
+| **ALU** | Unidad aritmético-lógica del procesador |
 
 ---
 
 <a id="referencias"></a>
-# 📚 Referencias (IEEE)
+## 🔗 Referencias
 
-[1] J. D. Carpinelli, *An Animated Introduction to Digital Logic Design*. New Jersey: New Jersey Institute of Technology, 2023, ISBN 978-1-970194-005.
+Bibliografía citada en el sílabo de la asignatura y en las diapositivas del docente:
 
-[2] G. Bégin, *Circuits logiques combinatoires et séquentiels*, 2023.
-
-[3] J. Á. Garza, *Electrónica digital I, Sistemas digitales*. Nuevo León, 2025.
-
-[4] Autodesk, "Tinkercad," 2023.
-
-[5] MuseMaze, Inc., "EveryCircuit," 2025.
-
-[6] CircuitLab, "CircuitLab," 2025.
-
-[7] L. D. Sinche Cueva, "Sílabo de la asignatura Diseño de Circuitos," Universidad Nacional de Loja, 2026.
-
-[8] L. D. Sinche Cueva, "Diapositivas de Diseño de Circuitos, Unidad 1, Semanas 1 a 4," Universidad Nacional de Loja, 2026.
+- Carpinelli, J. D. (2023). *An Animated Introduction to Digital Logic Design*. New Jersey Institute of Technology. ISBN 978-1-970194-005. *(Texto base)*
+- Bégin, G. (2023). *Circuits logiques combinatoires et séquentiels*. *(Bibliografía básica virtual)*
+- Garza, J. Á. (2025). *Electrónica digital I, Sistemas digitales*. Nuevo León. *(Recurso de Internet; lectura de la semana 2)*
+- Universidad Nacional de Loja. (2026). *Sílabo de la asignatura Diseño de Circuitos*. Carrera de Computación.
+- Sinche Cueva, L. D. (2026). *Diapositivas de clase, Unidad 1, semanas 1 a 4*. Diseño de Circuitos, Universidad Nacional de Loja.
 
 ---
 
+<a id="estructura"></a>
+## 🗂️ Estructura del repositorio
+
+```text
+cuaderno-diseno-circuitos-u1/
+├── 📄 README.md   → Cuaderno de síntesis completo (semanas 1 a 4)
+└── 🧭 MENU.md     → Menú de acceso rápido al cuaderno
+```
+
 <div align="center">
 
-**📓 Cuaderno de Síntesis · Unidad 1 · Diseño de Circuitos · UNL · 2026**  
-[⬆️ Volver al inicio](#-cuaderno-de-síntesis--unidad-1)
+⬆️ [Volver al inicio](#-cuaderno-de-síntesis--unidad-1)
 
 </div>
