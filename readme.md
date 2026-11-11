@@ -410,16 +410,12 @@ Bibliografía citada en el sílabo de la asignatura y en las diapositivas del do
 ---
 
 <a id="estructura"></a>
-## 🗂️ Estructura del repositorio
 
-```text
-cuaderno-diseno-circuitos-u1/
-├── 📄 README.md   → Cuaderno de síntesis completo (semanas 1 a 4)
-└── 🧭 MENU.md     → Menú de acceso rápido al cuaderno
-```
+
+
 
 <div align="center">
 
-⬆️ [Volver al inicio](#-cuaderno-de-síntesis--unidad-1)
+⬆️ [Volver al inicio](#menu.md)
 
 </div>
