@@ -17,7 +17,6 @@
 | 2️⃣ | Álgebra de Boole y formas canónicas | [Ir](#semana-2) |
 | 3️⃣ | Mapas de Karnaugh, indiferentes y NAND/NOR | [Ir](#semana-3) |
 | 4️⃣ | Circuitos aritméticos | [Ir](#semana-4) |
-| 🧩 | Mapa conceptual de la unidad | [Ir](#mapa) |
 | 📖 | Glosario | [Ir](#glosario) |
 | 🔗 | Referencias | [Ir](#referencias) |
 | 🗂️ | Estructura del repositorio | [Ir](#estructura) |
