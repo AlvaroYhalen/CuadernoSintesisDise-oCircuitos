@@ -356,28 +356,6 @@ La ALU de un procesador combina: **sumador/restador**, **comparador**, **compuer
 ---
 
 <a id="mapa"></a>
-## 🧩 Mapa conceptual de la unidad
-
-```text
-Sistemas numéricos y códigos (S1)
-        │
-        ▼
-Compuertas y tablas de verdad (S1) ──► Álgebra de Boole, SOP/POS (S2)
-                                                │
-                                                ▼
-                               Mapas de Karnaugh e indiferentes (S3)
-                                                │
-                                                ▼
-                               NAND/NOR: implementación con una familia (S3)
-                                                │
-                                                ▼
-                       Bloques aritméticos: sumadores, resta, comparador (S4)
-                                                │
-                                                ▼
-                                   Hacia la ALU (S5 en adelante)
-```
-
----
 
 <a id="glosario"></a>
 ## 📖 Glosario
