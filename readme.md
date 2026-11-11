@@ -28,3 +28,19 @@
 | 🗓️ **Período** | Septiembre 2026 – marzo 2027 |
 
 ---
+<div align="center">
+
+<h1> 𝕆𝔹𝕁𝔼𝕋𝕀𝕍𝕆 𝔻𝔼𝕃 ℙ𝕆ℝ𝕋𝔸𝔽𝕆𝕃𝕀𝕆</h1>
+Recopilar todas las actividades generadas en el transcurso y desarrollo del sílabo durante el periodo lectivo, con el fin de evidenciar el aprendizaje obtenido.
+
+## 📚 DIVISION DEL PORTAFOLIO
+
+| Unidad | Estado | Enlace |
+| :--- | :---: | :--- |
+| **PRIMERA UNIDAD** | 📖 Completada | [INGRESAR](./UNIDAD_ONE.md/) |
+| **SEGUNDA UNIDAD** | 📖 Completada | [INGRESAR](./UNIDAD_TWO.md/) |
+| **TERCERA UNIDAD** | 🔒 Pendiente | [INGRESAR](./UNIDAD_THREE.md/) |
+
+---
+
+</div>
