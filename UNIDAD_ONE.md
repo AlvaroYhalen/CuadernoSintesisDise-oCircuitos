@@ -5,6 +5,8 @@
 
 **Diseño de Circuitos** · Carrera de Computación · 2.º ciclo, paralelo A
 
+</div>
+
 
 ## 🧭 Menú de navegación
 
