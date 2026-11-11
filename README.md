@@ -45,8 +45,8 @@ Recopilar todas las actividades generadas en el transcurso y desarrollo del síl
 
 </div>
 
-# Declaración de uso de inteligencia artificial
+---
 
-| Herramienta | Finalidad | Procedimiento de verificación aplicado |
-|---|---|---|
-| [Herramienta] | [Ej.: estructurar el cuaderno y redactar resúmenes] | [Ej.: contraste con el texto base [1], comprobación de cada tabla de verdad y de cada ejemplo en el simulador] |
+## 🤖 Declaración de uso de inteligencia artificial
+
+De conformidad con la política de uso declarado de inteligencia artificial de la asignatura Diseño de Circuitos, se declara que en la elaboración de este cuaderno se utilizó la herramienta **Claude (Sonnet 5.5), desarrollada por Anthropic**, con la finalidad de **organizar la estructura del repositorio, sintetizar los contenidos de las semanas 1 a 4 a partir del sílabo y de las diapositivas del docente, mejorar la presentación visual del archivo `README.md` (menú de navegación, tablas, emojis) y corregir su formato en GitHub**. Como procedimiento de verificación, el contenido generado fue **contrastado con el sílabo, las diapositivas de clase y la bibliografía de la asignatura, y posteriormente revisado y editado por el estudiante**, quien asume la responsabilidad por el trabajo presentado.
