@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📘 Cuaderno de Síntesis · Unidad 1
+# 📘 Cuaderno de Síntesis
 ### Análisis de Lógica Combinacional con Diseño Clásico
 
 **Diseño de Circuitos** · Carrera de Computación · 2.º ciclo, paralelo A
