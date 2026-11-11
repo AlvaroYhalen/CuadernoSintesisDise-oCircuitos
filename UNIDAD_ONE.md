@@ -416,6 +416,6 @@ Bibliografía citada en el sílabo de la asignatura y en las diapositivas del do
 
 <div align="center">
 
-⬆️ [Volver al inicio](#menu.md)
+[⬅️ VOLVER A CARATULA](../README.md)
 
 </div>
