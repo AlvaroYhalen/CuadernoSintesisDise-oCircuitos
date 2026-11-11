@@ -1,26 +1,30 @@
 <div align="center">
 
-# 🧭 Menú de acceso · Cuaderno Digital
-### Diseño de Circuitos · Unidad 1 (semanas 1 a 4)
+# 📘 Cuaderno de Síntesis · Unidad 1
+### Análisis de Lógica Combinacional con Diseño Clásico
+
+**Diseño de Circuitos** · Carrera de Computación · 2.º ciclo, paralelo A
+
+<img width="500" height="161" alt="image" src="https://github.com/user-attachments/assets/08db7c73-bf0c-423e-99d4-5ef79a532b3a" />
+
+
+
+**Universidad Nacional de Loja** · Período académico septiembre 2026 – marzo 2027
+
+![Unidad](https://img.shields.io/badge/Unidad-1-blue) ![Semanas](https://img.shields.io/badge/Semanas-1%20a%204-green) ![Resultado](https://img.shields.io/badge/Resultado-R1-orange) ![Estado](https://img.shields.io/badge/Estado-En%20construcci%C3%B3n-yellow)
 
 </div>
-
-| | Sección | Contenido | Acceso |
-|:-:|---|---|:-:|
-| 🏠 | **Inicio** | Portada del cuaderno | [📄 Abrir](README.md) |
-| 🧭 | **Ruta de la unidad** | Resultado de aprendizaje R1 y procedimiento de diseño | [📄 Abrir](README.md#objetivo) |
-| 1️⃣ | **Semana 1** | Sistemas numéricos, códigos y compuertas lógicas | [📄 Abrir](README.md#semana-1) |
-| 2️⃣ | **Semana 2** | Álgebra de Boole y formas canónicas | [📄 Abrir](README.md#semana-2) |
-| 3️⃣ | **Semana 3** | Mapas de Karnaugh, indiferentes y NAND/NOR | [📄 Abrir](README.md#semana-3) |
-| 4️⃣ | **Semana 4** | Circuitos aritméticos | [📄 Abrir](README.md#semana-4) |
-| 🧩 | **Mapa conceptual** | Relación entre los temas de la unidad | [📄 Abrir](README.md#mapa) |
-| 📖 | **Glosario** | Términos clave | [📄 Abrir](README.md#glosario) |
-| 🔗 | **Referencias** | Bibliografía del sílabo | [📄 Abrir](README.md#referencias) |
 
 ---
 
-<div align="center">
+## 🪪 Portada
 
-[🏠 Inicio](README.md) · [1️⃣ S1](README.md#semana-1) · [2️⃣ S2](README.md#semana-2) · [3️⃣ S3](README.md#semana-3) · [4️⃣ S4](README.md#semana-4) · [📖 Glosario](README.md#glosario) · [🔗 Referencias](README.md#referencias)
+| | |
+|---|---|
+| 👤 **Estudiante** | `ALVARO YHALEN VILLAFUERTE CONDOY ` |
+| 🎓 **Carrera / Ciclo** | Computación · 2.º ciclo · Paralelo A |
+| 📚 **Asignatura** | Diseño de Circuitos (código institucional E2C2A1) |
+| 👨‍🏫 **Docente** | Ing. Luis Darío Sinche Cueva, Mg. |
+| 🗓️ **Período** | Septiembre 2026 – marzo 2027 |
 
-</div>
+---
