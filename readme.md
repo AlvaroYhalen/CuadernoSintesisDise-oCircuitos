@@ -4,6 +4,8 @@
 ### Análisis de Lógica Combinacional con Diseño Clásico
 
 **Diseño de Circuitos** · Carrera de Computación · 2.º ciclo, paralelo A
+<img src="https://camo.githubusercontent.com/61bbae9ba6e0d24721a5c099974b99887446f8d59e5efdbbab774617277acfce/68747470733a2f2f756e6c2e6564752e65632f73697465732f64656661756c742f66696c65732f6c6f676f67726973253230636f7069612e706e67" width="400px">
+
 **Universidad Nacional de Loja** · Período académico septiembre 2026 – marzo 2027
 
 ![Unidad](https://img.shields.io/badge/Unidad-1-blue) ![Semanas](https://img.shields.io/badge/Semanas-1%20a%204-green) ![Resultado](https://img.shields.io/badge/Resultado-R1-orange) ![Estado](https://img.shields.io/badge/Estado-En%20construcci%C3%B3n-yellow)
