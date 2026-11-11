@@ -44,3 +44,9 @@ Recopilar todas las actividades generadas en el transcurso y desarrollo del síl
 ---
 
 </div>
+
+# Declaración de uso de inteligencia artificial
+
+| Herramienta | Finalidad | Procedimiento de verificación aplicado |
+|---|---|---|
+| [Herramienta] | [Ej.: estructurar el cuaderno y redactar resúmenes] | [Ej.: contraste con el texto base [1], comprobación de cada tabla de verdad y de cada ejemplo en el simulador] |
