@@ -117,6 +117,10 @@ En un sistema **posicional**, cada posición vale una potencia de la base.
 
 ### 🚪 1.5 Compuertas lógicas
 
+
+<img width="333" height="399" alt="image" src="https://github.com/user-attachments/assets/f09413a9-4500-4141-b4b6-fef5a76be238" />
+
+
 | Compuerta | Expresión | Salida en 1 cuando… |
 |---|:-:|---|
 | **NOT** | `Y = A'` | La entrada es 0 (invierte) |
